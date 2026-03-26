@@ -1,6 +1,12 @@
-- Describir que espero de este repositorio en palabras sencillas.
-  (Mostrar las habilidades y/o tecnologias aprendidas).
-- Poner la URL de la app
+ En este commit encontrarás mi App,con sus archivos y carpetas organizadas.
+  en el siguiente link se encuentra desplegada.
   https://mauriciorq.github.io/TODOList-intro-React/
-  En este commit encontrarás mi App,con sus archivos y carpetas organizadas.
-   en este link está desplegada.
+
+ Para llevar a cabo este proyecto utilizamos las siguientes tecnologias:
+ - Eventos (onClick, onChange)
+ - Estados
+ - Custom hooks
+ - use effect
+ - Skeletoons
+ - React context
+ - React portals
