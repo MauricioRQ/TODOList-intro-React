@@ -2,20 +2,22 @@
 import React from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
-//Creamos el contexto
-const TodoContext = React.createContext();
+// //Creamos el contexto
+// const TodoContext = React.createContext();
 
 
-function TodoProvider({ children }) {
+function useTodos() {
 
     //Capturamos la info del localStorage
     const {
         item: todos, 
         saveItem: saveTodos, 
+        sincronizeItem: sincronizeTodos,
         loading, 
         error,
     } = useLocalStorage('TODOS_V1', []);
 
+    //Estado del Buscador
     const [searchValue, setSearchValue] = React.useState('');
 
     //Estado del Modal
@@ -73,26 +75,28 @@ function TodoProvider({ children }) {
         saveTodos(newTodos);
     };
 
+    //Actualizadores de estado
+    const state = {
+        loading,
+        error,
+        totalTodos,
+        completedTodos,
+        searchValue,
+        searchedTodos,
+        openModal,
+    };
+
     //la prop. value va a contener todos nuestros estados, propiedades...
-    return(
-        <TodoContext.Provider value={{
-            loading,
-            error,
-            completedTodos,
-            totalTodos,
-            searchValue,
-            setSearchValue,
-            searchedTodos,
-            completeTodo,
-            addTodo,
-            deleteTodo,
-            openModal,
-            setOpenModal,
-        }}>
-            {children}
-        </TodoContext.Provider>
-    );
+    const stateUpdaters = {
+        setSearchValue,
+        completeTodo,
+        addTodo,
+        deleteTodo,
+        setOpenModal,
+        sincronizeTodos,
+    }; 
+
+    return { state, stateUpdaters };
 }
 
-
-export { TodoContext, TodoProvider };
+export { useTodos };

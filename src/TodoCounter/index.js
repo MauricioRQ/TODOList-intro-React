@@ -1,19 +1,15 @@
 import React from 'react';
 import './TodoCounter.css';
-import { TodoContext } from '../TodoContext';
 
-function TodoCounter() {
-    //Utilizamos el useContext especificando el contexto a utilizar, llamando las props que necesitamos.
-    const {
-        completedTodos,
-        totalTodos,
-    } = React.useContext(TodoContext)
-
+function TodoCounter({totalTodos, completedTodos, loading}) {
+    
     return(
-        <h1 className='TodoCounter'>
+        <
+            h2 className={`TodoCounter ${!!loading && "TodoCounter--loading"}`}
+        >
             ¡Has completado <span>{completedTodos}</span>  de <span>{totalTodos}
             </span> items!
-        </h1>
+        </h2>
     );
 }
 
