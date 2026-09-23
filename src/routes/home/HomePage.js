@@ -44,52 +44,44 @@ function HomePage() {
         return (
         <>
             <TodoHeader loading= {loading}>
-            <TodoCounter 
-                completedTodos={completedTodos}
-                totalTodos={totalTodos}
-            />
+                <TodoCounter 
+                    completedTodos={completedTodos}
+                    totalTodos={totalTodos}
+                />
 
-            <TodoSearch
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-            /> 
+                <TodoSearch
+                    searchValue={searchValue}
+                    setSearchValue={setSearchValue}
+                /> 
             </TodoHeader>
 
             {/* Render props - Render Functions */}
             <TodoList
-            // Render props
-            error={error}
-            loading={loading}
-            searchedTodos={searchedTodos}
-            totalTodos={totalTodos}
-            searchText={searchValue}
+                // Render props
+                error={error}
+                loading={loading}
+                searchedTodos={searchedTodos}
+                totalTodos={totalTodos}
+                searchText={searchValue}
 
-            // Render Functions
-            onError={() => <TodosError/>}
-            onLoading={() => <TodosLoading/>}
-            onEmptyTodos={() => <EmptyTodos/>}
-            onEmptySearchResults={
-                (searchText) => <p>No hay resultados para {searchText}</p>}
-            
-            //   render={todo => (
-            //   <TodoItem
-            //     key={todo.text} 
-            //     text = {todo.text}
-            //     completed = {todo.completed}
-            //     onComplete = {() => completeTodo(todo.text)}
-            //     onDelete = {() => deleteTodo(todo.text)}
-            //   />
-            // )}
-            >
-            {todo => (
-                <TodoItem
-                key={todo.text} 
-                text = {todo.text}
-                completed = {todo.completed}
-                onComplete = {() => completeTodo(todo.text)}
-                onDelete = {() => deleteTodo(todo.text)}
-                />
-            )}
+                // Render Functions
+                onError={() => <TodosError/>}
+                onLoading={() => <TodosLoading/>}
+                onEmptyTodos={() => <EmptyTodos/>}
+                onEmptySearchResults={
+                    (searchText) => <p>No hay resultados para {searchText}</p>
+                }
+            >   
+                {todo => (
+                    <TodoItem
+                        key={todo.text} 
+                        text = {todo.text}
+                        completed = {todo.completed}
+                        onComplete = {() => completeTodo(todo.text)}
+                        onEdit = {() => console.log('Edit todo')}
+                        onDelete = {() => deleteTodo(todo.text)}
+                    />
+                )}
             </TodoList>
 
             <CreateTodoButton
