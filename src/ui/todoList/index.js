@@ -7,7 +7,7 @@ function TodoList(props) {
 
     return (
         // para validaciones llamamos las propiedades y funciones del comp. TodoList en App
-        <section clasName='TodoList-container'>
+        <section className='TodoList-container'>
             {props.error && props.onError()}
             {props.loading && props.onLoading()}
 
@@ -16,11 +16,6 @@ function TodoList(props) {
             {(!!props.totalTodos && !props.searchedTodos.length) && props.onEmptySearchResults(props.searchText)}
 
             {(!props.loading && !props.error) && props.searchedTodos.map(renderFunc)}
-
-            <ul>
-                {/* Nos referimos a los elementos hijos de la lista en el archivo TodoItem.js */}
-                {props.children}
-            </ul>
 
         </section>
     );

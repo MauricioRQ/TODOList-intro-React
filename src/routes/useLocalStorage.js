@@ -82,6 +82,8 @@ function useLocalStorage(itemName, initialValue) {
     };
 }
 
+
+
 const initialState = ({ initialValue }) => ({
     sincronizeItem: true,
     error: false,
