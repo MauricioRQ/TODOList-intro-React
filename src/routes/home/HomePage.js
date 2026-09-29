@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useTodos } from '../useTodos';
 import { TodoHeader } from '../../ui/TodoHeader';
 import { TodoCounter } from '../../ui/TodoCounter';
@@ -17,6 +18,8 @@ import { ChangeAlert } from '../../ui/ChangeAlert';
 
 function HomePage() {
 
+    const navigate = useNavigate();
+
     //Utilizamos el useTodos, llamando las props que necesitamos.
     const { state, stateUpdaters } = useTodos();
 
@@ -28,16 +31,16 @@ function HomePage() {
         completedTodos,
         searchValue,
         searchedTodos,
-        openModal,
+        //openModal,
     } = state;
 
     //Actualizadores de estados
     const {
         completeTodo,
         setSearchValue,
-        addTodo,
+        //addTodo,
         deleteTodo,
-        setOpenModal,
+        //setOpenModal,
         sincronizeTodos,
     } = stateUpdaters;
 
@@ -78,24 +81,25 @@ function HomePage() {
                         text = {todo.text}
                         completed = {todo.completed}
                         onComplete = {() => completeTodo(todo.id)}
-                        onEdit = {() => console.log('Edit todo')}
+                        onEdit = {() => navigate('/edit/' + todo.id)}
                         onDelete = {() => deleteTodo(todo.id)}
                     />
                 )}
             </TodoList>
 
             <CreateTodoButton
-            setOpenModal={setOpenModal}
+                onClick = {() => navigate('/new')}
+                //setOpenModal={setOpenModal}
             />
 
-            {!!openModal && (
+            {/* {!!openModal && (
             <Modal>
                 <TodoForm 
                 addTodo={addTodo}
                 setOpenModal={setOpenModal}
                 />
             </Modal>
-            )}
+            )} */}
 
             <ChangeAlert
             sincronize={sincronizeTodos}

@@ -2,7 +2,9 @@ import React from 'react';
 
 // Custom hook del localStorage: useLocalStorage
 function useLocalStorage(itemName, initialValue) {
+    
     const [state, dispatch] = React.useReducer(reducer, initialState({ initialValue }));
+
     const {
         sincronizedItem,
         item,
