@@ -16,9 +16,6 @@ function useTodos() {
     //Estado del Buscador
     const [searchValue, setSearchValue] = React.useState('');
 
-    //Estado del Modal
-    const [openModal, setOpenModal] = React.useState(false);
-
     //filtramos cuantos to-dos tienen la propiedad completed = true, para el dato del counter
     const completedTodos = todos.filter(
         todo => !!todo.completed
@@ -50,8 +47,16 @@ function useTodos() {
             });
             saveTodos(newTodos);
         }
-
     };
+
+    // get text for edit TODO
+    const getTodo = (id) => {
+        const todoIndex = todos.findIndex(
+            (todo) => todo.id === id
+        );
+
+        return todos[todoIndex];
+    }
 
     // Check Todos completados
     const completeTodo = (id) => {
@@ -60,6 +65,16 @@ function useTodos() {
             (todo) => todo.id === id
         );
         newTodos[todoIndex].completed = true;
+        saveTodos(newTodos);
+    };
+
+    // Edit Todos completados
+    const editTodo = (id, newText) => {
+        const newTodos = [...todos];
+        const todoIndex = newTodos.findIndex(
+            (todo) => todo.id === id
+        );
+        newTodos[todoIndex].text = newText;
         saveTodos(newTodos);
     };
 
@@ -81,7 +96,7 @@ function useTodos() {
         completedTodos,
         searchValue,
         searchedTodos,
-        openModal,
+        getTodo,
     };
 
     //la prop. value va a contener todos nuestros estados, propiedades...
@@ -90,7 +105,7 @@ function useTodos() {
         completeTodo,
         addTodo,
         deleteTodo,
-        setOpenModal,
+        editTodo,
         sincronizeTodos,
     }; 
 
