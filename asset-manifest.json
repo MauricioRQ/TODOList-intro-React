@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/curso-react-intro/static/css/main.91f0365f.css",
-    "main.js": "/curso-react-intro/static/js/main.9a80fa86.js",
-    "index.html": "/curso-react-intro/index.html",
-    "static/media/delete.svg": "/curso-react-intro/static/media/delete.9f97632c6af4004e77941359f70e18f3.svg",
-    "static/media/check.svg": "/curso-react-intro/static/media/check.5dfcd315d8e31c04ad6d23d703c38a89.svg",
-    "static/media/edit.svg": "/curso-react-intro/static/media/edit.bf9b5292b7fe39736dacf56d3787c3a9.svg",
-    "main.91f0365f.css.map": "/curso-react-intro/static/css/main.91f0365f.css.map",
-    "main.9a80fa86.js.map": "/curso-react-intro/static/js/main.9a80fa86.js.map"
+    "main.css": "/TODOList-intro-React/static/css/main.91f0365f.css",
+    "main.js": "/TODOList-intro-React/static/js/main.f10ed937.js",
+    "index.html": "/TODOList-intro-React/index.html",
+    "static/media/delete.svg": "/TODOList-intro-React/static/media/delete.9f97632c6af4004e77941359f70e18f3.svg",
+    "static/media/check.svg": "/TODOList-intro-React/static/media/check.5dfcd315d8e31c04ad6d23d703c38a89.svg",
+    "static/media/edit.svg": "/TODOList-intro-React/static/media/edit.bf9b5292b7fe39736dacf56d3787c3a9.svg",
+    "main.91f0365f.css.map": "/TODOList-intro-React/static/css/main.91f0365f.css.map",
+    "main.f10ed937.js.map": "/TODOList-intro-React/static/js/main.f10ed937.js.map"
   },
   "entrypoints": [
     "static/css/main.91f0365f.css",
-    "static/js/main.9a80fa86.js"
+    "static/js/main.f10ed937.js"
   ]
 }
